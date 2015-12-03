@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 /**
+ * 简单的环形进度条
  * Created by HanLong on 2015/12/1.
  */
 public class CircleProgressView extends View{

@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
+ * 自定义的TopBar，带有自定义属性
  * Created by HanLong on 2015/11/26.
  */
 public class TopBar extends RelativeLayout {
