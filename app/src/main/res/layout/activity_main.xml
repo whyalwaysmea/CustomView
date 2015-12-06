@@ -1,53 +1,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:haha="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <com.ithaha.systemwidget.MyTextView
-        android:id="@+id/my_textview"
-        android:layout_width="200dp"
+    <Button
+        android:id="@+id/btn_my_textview"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="MyText"
-        android:textSize="20sp"
-        android:visibility="gone" />
+        android:text="MyTextView"/>
 
-
-    <com.ithaha.systemwidget.ShineTextView
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_shine_textview"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="ShineTextView"
-        android:textSize="30sp"
-        android:visibility="gone" />
+        android:text="ShineTextView"/>
 
-    <com.ithaha.systemwidget.TopBar
-        android:id="@+id/my_topbar"
+    <Button
+        android:id="@+id/btn_topbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@android:color/black"
-        android:visibility="gone"
-        haha:leftBackground="@drawable/android_spinner_left"
-        haha:leftText="返回"
-        haha:leftTextColor="#00ff00"
-        haha:rightBackground="@drawable/android_spinner_left"
-        haha:rightText="MORE"
-        haha:rightTextColor="@android:color/holo_blue_bright"
-        haha:titleText="标题"
-        haha:titleTextColor="#FF0000"
-        haha:titleTextSize="16sp" />
+        android:layout_height="wrap_content"
+        android:text="TopBar"/>
 
-    <com.ithaha.systemwidget.CircleProgressView
-        android:id="@+id/my_circleprogress"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
 
-    <com.ithaha.systemwidget.VolumeView
+    <Button
+        android:id="@+id/btn_circle_progress"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:text="CircleProgress"/>
+
+
+    <Button
+        android:id="@+id/btn_volume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VolumeView"/>
 
 </LinearLayout>

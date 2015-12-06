@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_my_text_view">MyTextView</string>
+    <string name="title_activity_shine_text_view">ShineTextViewActivity</string>
+    <string name="title_activity_top_bar">TopBarActivity</string>
 </resources>
