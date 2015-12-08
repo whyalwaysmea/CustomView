@@ -25,6 +25,8 @@ public class MainActivity extends Activity {
     Button btnCircleProgress;
     @Bind(R.id.btn_volume)
     Button btnVolume;
+    @Bind(R.id.btn_viewgroup)
+    Button btnViewgroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,12 @@ public class MainActivity extends Activity {
             }
         });
 
+        btnViewgroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ScrollViewActivity.class));
+            }
+        });
     }
 
 

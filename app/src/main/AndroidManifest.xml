@@ -35,6 +35,8 @@
         </activity>
         <activity android:name=".activity.VolumeViewActivity" >
         </activity>
+        <activity android:name=".activity.ScrollViewActivity" >
+        </activity>
     </application>
 
 </manifest>
