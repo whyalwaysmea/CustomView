@@ -31,9 +31,11 @@ public class ScrollHideListView extends AppCompatActivity {
         public boolean onTouch(View v, MotionEvent event) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
+                    // 记录按下的Y坐标
                     mFirstY = event.getY();
                     break;
                 case MotionEvent.ACTION_MOVE:
+                    // 获取到最新的Y坐标
                     mCurrentY = event.getY();
                     if (mCurrentY - mFirstY > mTouchSlop) {
                         direction = 0;// down
@@ -82,17 +84,18 @@ public class ScrollHideListView extends AppCompatActivity {
         mListView.setOnTouchListener(myTouchListener);
     }
 
+	/**
+     * 隐藏或者显示toolbar
+     * @param flag  1 -- 显示   0 -- 隐藏
+     */
     private void toolbarAnim(int flag) {
         if (mAnimator != null && mAnimator.isRunning()) {
             mAnimator.cancel();
         }
         if (flag == 0) {
-            mAnimator = ObjectAnimator.ofFloat(mToolbar,
-                    "translationY", mToolbar.getTranslationY(), 0);
+            mAnimator = ObjectAnimator.ofFloat(mToolbar, "translationY", mToolbar.getTranslationY(), 0);
         } else {
-            mAnimator = ObjectAnimator.ofFloat(mToolbar,
-                    "translationY", mToolbar.getTranslationY(),
-                    -mToolbar.getHeight());
+            mAnimator = ObjectAnimator.ofFloat(mToolbar, "translationY", mToolbar.getTranslationY(), -mToolbar.getHeight());
         }
         mAnimator.start();
     }

@@ -35,4 +35,10 @@
         android:onClick="btnFocus"
         android:text="Focus" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="hideToolbar"
+        android:text="hideToolbar"/>
+
 </LinearLayout>

@@ -35,4 +35,8 @@ public class ListViewMainActivity extends Activity {
     public void btnFocus(View view) {
         startActivity(new Intent(this, FocusListViewTest.class));
     }
+
+    public void hideToolbar(View view) {
+        startActivity(new Intent(this, HideToolbarActivity.class));
+    }
 }
