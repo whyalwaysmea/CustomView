@@ -1,4 +1,4 @@
-package com.ithaha.systemwidget.activity;
+package com.ithaha.systemwidget.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

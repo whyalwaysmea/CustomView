@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ithaha.systemwidget">
+<manifest package="com.ithaha.systemwidget"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -8,40 +8,41 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.ViewActivity"
             android:label="@string/app_name">
-
         </activity>
         <activity
-            android:name=".activity.MyTextViewActivity"
+            android:name=".view.MyTextViewActivity"
             android:label="@string/title_activity_my_text_view"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".activity.ShineTextViewActivity"
+            android:name=".view.ShineTextViewActivity"
             android:label="@string/title_activity_shine_text_view"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".activity.TopBarActivity"
+            android:name=".view.TopBarActivity"
             android:label="@string/title_activity_top_bar"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".activity.CircleProgressViewActivity"></activity>
-        <activity android:name=".activity.VolumeViewActivity"></activity>
-        <activity android:name=".activity.ScrollViewActivity"></activity>
-
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".view.CircleProgressViewActivity"/>
+        <activity android:name=".view.VolumeViewActivity"/>
+        <activity android:name=".view.ScrollViewActivity"/>
         <activity
             android:name=".ListView.ListViewMainActivity"
             android:theme="@style/AppTheme1">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+        </activity>
+        <activity android:name=".ListView.FlexibleListViewTest"/>
+        <activity android:name=".ListView.ChatItemListViewTest"/>
+        <activity android:name=".ListView.FocusListViewTest"/>
+        <activity android:name=".ListView.NotifyTest"/>
+        <activity android:name=".ListView.ScrollHideListView"/>
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.ithaha.systemwidget.ListView.FlexibleListViewTest" />
-        <activity android:name="com.ithaha.systemwidget.ListView.ChatItemListViewTest" />
-        <activity android:name="com.ithaha.systemwidget.ListView.FocusListViewTest" />
-        <activity android:name="com.ithaha.systemwidget.ListView.NotifyTest" />
-        <activity android:name="com.ithaha.systemwidget.ListView.ScrollHideListView" />
     </application>
 
 </manifest>

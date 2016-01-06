@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_my_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MyTextView"/>
+
+    <Button
+        android:id="@+id/btn_shine_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ShineTextView"/>
+
+    <Button
+        android:id="@+id/btn_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TopBar"/>
+
+
+    <Button
+        android:id="@+id/btn_circle_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CircleProgress"/>
+
+
+    <Button
+        android:id="@+id/btn_volume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VolumeView"/>
+
+    <Button
+        android:id="@+id/btn_viewgroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MySrcollView"/>
+
+</LinearLayout>
