@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.ithaha.systemwidget.ListView.ListViewMainActivity;
 import com.ithaha.systemwidget.R;
 
 import butterknife.Bind;
@@ -14,34 +13,43 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-	@Bind(R.id.view_activity)
-	Button viewActivity;
-	@Bind(R.id.listview_activity)
-	Button listviewActivity;
+    @Bind(R.id.view_activity)
+    Button viewActivity;
+    @Bind(R.id.listview_activity)
+    Button listviewActivity;
+    @Bind(R.id.scroll_activity)
+    Button scrollActivity;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		ButterKnife.bind(this);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-		viewActivity.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				startActivity(ViewActivity.class);
-			}
-		});
+        viewActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(ViewActivity.class);
+            }
+        });
 
-		listviewActivity.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				startActivity(ListViewMainActivity.class);
-			}
-		});
-	}
+        listviewActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(ListViewMainActivity.class);
+            }
+        });
 
-	private void startActivity(Class thiz) {
-		Intent intent = new Intent(MainActivity.this, thiz);
-		startActivity(intent);
-	}
+        scrollActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(ScrollActivity.class);
+            }
+        });
+    }
+
+    private void startActivity(Class thiz) {
+        Intent intent = new Intent(MainActivity.this, thiz);
+        startActivity(intent);
+    }
 }
