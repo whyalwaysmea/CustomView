@@ -15,5 +15,10 @@
         android:layout_width="40dp"
         android:layout_height="40dp" />
 
+    <com.ithaha.systemwidget.scroll.DragView3
+        android:background="#0000ff"
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
+
 
 </LinearLayout>

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.imooc.myapplication.FlexibleListView
+    <com.ithaha.systemwidget.ListView.FlexibleListView
         android:id="@+id/flexible_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
