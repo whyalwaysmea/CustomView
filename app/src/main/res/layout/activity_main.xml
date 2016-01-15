@@ -24,6 +24,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:id="@+id/floorview_activity"
+        android:text="floorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:layout_margin="10dp"
         android:background="@drawable/buttonbck"

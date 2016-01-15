@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     Button listviewActivity;
     @Bind(R.id.scroll_activity)
     Button scrollActivity;
+    @Bind(R.id.floorview_activity)
+    Button floorviewActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(ScrollActivity.class);
+            }
+        });
+
+        floorviewActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(FloorViewActivity.class);
             }
         });
     }
