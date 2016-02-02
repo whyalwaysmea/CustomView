@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ithaha.systemwidget">
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -44,7 +43,8 @@
         <activity android:name=".ListView.HideToolbarActivity" />
         <activity android:name=".activity.ScrollActivity" />
         <activity android:name=".scroll.DragView1Activity" />
-        <activity android:name=".activity.FloorViewActivity"></activity>
+        <activity android:name=".activity.FloorViewActivity" />
+        <activity android:name=".scroll.DragHelperActivity"></activity>
     </application>
 
 </manifest>

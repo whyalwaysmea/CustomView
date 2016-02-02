@@ -7,9 +7,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by Administrator on 2016/1/12.
- */
 public class DragView3 extends View {
 
     private int lastX;
