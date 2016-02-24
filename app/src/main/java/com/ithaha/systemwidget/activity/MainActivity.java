@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     Button scrollActivity;
     @Bind(R.id.floorview_activity)
     Button floorviewActivity;
+    @Bind(R.id.drawing_activity)
+    Button drawingActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(FloorViewActivity.class);
+            }
+        });
+
+        drawingActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(DrawingActivity.class);
             }
         });
     }

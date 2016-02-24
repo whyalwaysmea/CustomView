@@ -44,7 +44,11 @@
         <activity android:name=".activity.ScrollActivity" />
         <activity android:name=".scroll.DragView1Activity" />
         <activity android:name=".activity.FloorViewActivity" />
-        <activity android:name=".scroll.DragHelperActivity"></activity>
+        <activity android:name=".scroll.DragHelperActivity" />
+        <activity
+            android:name=".activity.DrawingActivity"
+            android:label="@string/title_activity_drawing"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
