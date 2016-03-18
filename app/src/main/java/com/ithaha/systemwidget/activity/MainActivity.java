@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.ithaha.systemwidget.R;
+import com.ithaha.systemwidget.animation.ViewAnimation;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     Button floorviewActivity;
     @Bind(R.id.drawing_activity)
     Button drawingActivity;
+    @Bind(R.id.animation_activity)
+    Button animationActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(DrawingActivity.class);
+            }
+        });
+
+        animationActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(ViewAnimation.class);
             }
         });
     }

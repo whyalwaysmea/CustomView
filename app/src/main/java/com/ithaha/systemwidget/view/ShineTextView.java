@@ -40,7 +40,6 @@ public class ShineTextView extends TextView{
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-
         if(mViewWidth == 0) {
             mViewWidth = getMeasuredWidth();
             if(mViewWidth > 0) {

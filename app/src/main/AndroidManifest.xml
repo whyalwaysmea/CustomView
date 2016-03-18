@@ -48,7 +48,8 @@
         <activity
             android:name=".activity.DrawingActivity"
             android:label="@string/title_activity_drawing"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".animation.ViewAnimation"></activity>
     </application>
 
 </manifest>
