@@ -103,6 +103,7 @@ public class ViewAnimation extends AppCompatActivity {
                 Toast.makeText(this, "animator", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.wrapperview:
+                // 自定义的属性动画
                 WrapperView wrapperView = new WrapperView(wrapperview);
                 ObjectAnimator.ofInt(wrapperView, "width", 0,500).setDuration(5000).start();
                 break;

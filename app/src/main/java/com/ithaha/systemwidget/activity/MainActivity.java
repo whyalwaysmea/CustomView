@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.ithaha.systemwidget.R;
 import com.ithaha.systemwidget.animation.ViewAnimation;
+import com.ithaha.systemwidget.recyclerview.RecyclerViewActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     Button drawingActivity;
     @Bind(R.id.animation_activity)
     Button animationActivity;
+    @Bind(R.id.recyclerview_activity)
+    Button recyclerviewActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(ViewAnimation.class);
+            }
+        });
+
+        recyclerviewActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(RecyclerViewActivity.class);
             }
         });
     }
