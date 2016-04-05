@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.ithaha.systemwidget.R;
 import com.ithaha.systemwidget.animation.ViewAnimation;
+import com.ithaha.systemwidget.expandabletextview.ExpandableTextViewActivity;
 import com.ithaha.systemwidget.recyclerview.RecyclerViewActivity;
 
 import butterknife.Bind;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     Button animationActivity;
     @Bind(R.id.recyclerview_activity)
     Button recyclerviewActivity;
+    @Bind(R.id.expandable_textview_activity)
+    Button expandableTextviewActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +85,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(RecyclerViewActivity.class);
+            }
+        });
+
+        expandableTextviewActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(ExpandableTextViewActivity.class);
             }
         });
     }
