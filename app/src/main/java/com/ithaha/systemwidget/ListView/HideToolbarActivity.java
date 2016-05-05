@@ -38,6 +38,7 @@ public class HideToolbarActivity extends AppCompatActivity {
 		mRecyclerView.setAdapter(mAdapter = new HomeAdapter());
 		//设置Item增加、移除动画
 		mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+
 	}
 
 	protected void initData() {

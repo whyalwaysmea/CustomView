@@ -35,6 +35,10 @@ public class ViewAnimation extends AppCompatActivity {
     Button objectAnimator;
     @Bind(R.id.wrapperview)
     Button wrapperview;
+    @Bind(R.id.initialize)
+    Button mInitialize;
+    @Bind(R.id.customTV)
+    Button mCustomTV;
     private AlphaAnimation alphaAnimation;
     private RotateAnimation rotateAnimation;
     private TranslateAnimation translateAnimation;
@@ -47,7 +51,8 @@ public class ViewAnimation extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.aplha, R.id.rotate, R.id.translate, R.id.scale, R.id.animationset, R.id.objectAnimator, R.id.wrapperview})
+    @OnClick({R.id.aplha, R.id.rotate, R.id.translate, R.id.scale, R.id.animationset, R.id.objectAnimator, R.id.wrapperview
+            ,R.id.initialize, R.id.customTV})
     void click(View view) {
         switch (view.getId()) {
             case R.id.aplha:
@@ -96,7 +101,7 @@ public class ViewAnimation extends AppCompatActivity {
                 animationset.startAnimation(animationSet);
                 break;
             case R.id.objectAnimator:
-                // 属性动画
+                // 属性动画   右移
                 ObjectAnimator animator = ObjectAnimator.ofFloat(objectAnimator, "translationX", 0, 300);
                 animator.setDuration(3000);
                 animator.start();
@@ -105,7 +110,17 @@ public class ViewAnimation extends AppCompatActivity {
             case R.id.wrapperview:
                 // 自定义的属性动画
                 WrapperView wrapperView = new WrapperView(wrapperview);
-                ObjectAnimator.ofInt(wrapperView, "width", 0,500).setDuration(5000).start();
+                ObjectAnimator.ofInt(wrapperView, "width", 0, 500).setDuration(5000).start();
+                break;
+            case R.id.initialize:
+                // 自定义动画 -- 电视机关闭low
+                WrapperHeightView wrapperView2 = new WrapperHeightView(mInitialize);
+                ObjectAnimator.ofInt(wrapperView2, "height", mInitialize.getHeight(), 0).setDuration(5000).start();
+                break;
+            case R.id.customTV:
+                // 自定义动画 -- 电视机关闭low
+                CustomTV customTV = new CustomTV();
+                view.startAnimation(customTV);
                 break;
         }
     }
@@ -128,4 +143,20 @@ public class ViewAnimation extends AppCompatActivity {
         }
     }
 
+    private static class WrapperHeightView {
+        private View mTarget;
+
+        public WrapperHeightView(View target) {
+            mTarget = target;
+        }
+
+        public int getHeight() {
+            return mTarget.getLayoutParams().height;
+        }
+
+        public void setHeight(int height) {
+            mTarget.getLayoutParams().height = height;
+            mTarget.requestLayout();
+        }
+    }
 }

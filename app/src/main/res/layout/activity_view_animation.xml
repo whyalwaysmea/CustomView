@@ -40,4 +40,14 @@
         android:text="wrapperview"
         style="@style/MyButton" />
 
+    <Button
+        android:id="@+id/initialize"
+        android:text="initialize"
+        style="@style/MyButton" />
+
+    <Button
+        android:id="@+id/customTV"
+        android:text="customTV"
+        style="@style/MyButton" />
+
 </LinearLayout>

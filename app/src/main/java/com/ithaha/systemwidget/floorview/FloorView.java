@@ -66,6 +66,7 @@ public class FloorView extends LinearLayout {
 	private void init(Context context) {
 		this.setOrientation(LinearLayout.VERTICAL);
 		density = (int) (3.0F * context.getResources().getDisplayMetrics().density);
+		System.out.println("density == " + density);
 	}
 
 	public void init() {

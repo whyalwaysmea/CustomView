@@ -1,9 +1,12 @@
 package com.ithaha.systemwidget.recyclerview;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +22,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Long
+ * 下拉刷新
  * on 2016/3/22.
  */
 public class SwipeRefresh extends Fragment {
@@ -28,6 +32,7 @@ public class SwipeRefresh extends Fragment {
 
     private ArrayList<String> mDatas;
     private Context mContext;
+    private LinearLayoutManager linearLayoutManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -45,11 +50,32 @@ public class SwipeRefresh extends Fragment {
             mDatas.add(i+"");
         }
 
-        HomeAdapter homeAdapter = new HomeAdapter(getContext(), mDatas);
+        final HomeAdapter homeAdapter = new HomeAdapter(getContext(), mDatas);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
+        linearLayoutManager = new LinearLayoutManager(mContext);
         ultimateRecyclerView.setLayoutManager(linearLayoutManager);
         ultimateRecyclerView.setAdapter(homeAdapter);
+
+        // 设置下拉刷新的颜色
+        ultimateRecyclerView.setDefaultSwipeToRefreshColorScheme(Color.parseColor("#ffffff"));
+
+        // 下拉刷新
+        ultimateRecyclerView.setDefaultOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mDatas.clear();
+                        for (int i = 0; i < 10; i++) {
+                            mDatas.add(i+":" + "刷新的数据");
+                        }
+                        homeAdapter.notifyDataSetChanged();
+                        ultimateRecyclerView.setRefreshing(false);
+                    }
+                }, 10000);
+            }
+        });
     }
 
     @Override

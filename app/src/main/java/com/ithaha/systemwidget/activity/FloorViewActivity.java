@@ -30,6 +30,12 @@ public class FloorViewActivity extends AppCompatActivity {
         commentArrayList.add(new Comment("heihei", "嘿嘿嘿，我是评论", 2));
         commentArrayList.add(new Comment("haha", "哈哈哈，我是评论", 1));
         commentArrayList.add(new Comment("wowo", "喔喔喔，我是评论", 3));
+        commentArrayList.add(new Comment("wowo", "喔喔喔，我是评论", 4));
+        commentArrayList.add(new Comment("wowo", "喔喔喔，我是评论", 5));
+        commentArrayList.add(new Comment("wowo", "喔喔喔，我是评论", 6));
+        commentArrayList.add(new Comment("wowo", "喔喔喔，我是评论", 7));
+        commentArrayList.add(new Comment("wowo", "喔喔喔，我是评论", 8));
+        commentArrayList.add(new Comment("wowo", "喔喔喔，我是评论", 9));
 
         Collections.sort(commentArrayList);
 
