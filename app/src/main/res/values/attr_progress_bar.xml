@@ -25,4 +25,9 @@
         </attr>
 
     </declare-styleable>
+
+    <declare-styleable name="RoundProgressBarWithNumber">
+        <!--半径-->
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
 </resources>

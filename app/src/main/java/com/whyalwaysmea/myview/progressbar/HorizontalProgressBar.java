@@ -1,4 +1,4 @@
-package com.whyalwaysmea.myview;
+package com.whyalwaysmea.myview.progressbar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,6 +7,8 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.ProgressBar;
+
+import com.whyalwaysmea.myview.R;
 
 /**
  * Created by HelloWorld on 2017/2/22.
@@ -132,7 +134,6 @@ public class HorizontalProgressBar extends ProgressBar {
 
     @Override
     protected synchronized void onDraw(Canvas canvas) {
-        System.out.println("onDraw");
 
         boolean noNeedBg = false;
 
