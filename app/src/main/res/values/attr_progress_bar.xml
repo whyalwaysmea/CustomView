@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--定义HorizontalProgressBar自定义属性-->
+    <declare-styleable name="HorizontalProgressBar">
+        <!--未到达的颜色-->
+        <attr name="progress_unreached_color" format="color" />
+        <!--已经到达的颜色-->
+        <attr name="progress_reached_color" format="color" />
+
+        <!--未达到的高度-->
+        <attr name="progress_unreached_height" format="dimension" />
+        <!--已经到达的高度-->
+        <attr name="progress_reached_height" format="dimension" />
+
+        <!--数字的颜色-->
+        <attr name="progress_text_color" format="color"/>
+        <!--数字的大小-->
+        <attr name="progress_text_size" format="dimension" />
+        <!--数字的间隔距离-->
+        <attr name="progress_text_offset" format="dimension" />
+        <!--是否显示数字-->
+        <attr name="progress_text_visibility" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+        </attr>
+
+    </declare-styleable>
+</resources>

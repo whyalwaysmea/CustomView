@@ -14,6 +14,7 @@ import static android.content.ContentValues.TAG;
 /**
  * Created by HelloWorld on 2017/2/21.
  * 流式布局
+ * 参考链接：http://blog.csdn.net/lmj623565791/article/details/38352503
  */
 
 public class FlowLayout extends ViewGroup {
