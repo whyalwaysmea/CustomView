@@ -34,7 +34,7 @@ public class DishesApapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         DishesViewHolder dishesViewHolder = (DishesViewHolder) holder;
         Dishes dishes = mDishesList.get(position);
         dishesViewHolder.name.setText(dishes.getName());
-        dishesViewHolder.price.setText("" + dishes.getPrice());
+        dishesViewHolder.price.setText("￥：" + dishes.getPrice());
     }
 
     @Override
