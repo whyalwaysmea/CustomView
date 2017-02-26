@@ -1,19 +1,28 @@
 package com.whyalwaysmea.myview.shoppingcar.view;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import com.whyalwaysmea.myview.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.whyalwaysmea.myview.shoppingcar.view.OrderButton.STEP_BTN_EXPAND;
 import static com.whyalwaysmea.myview.shoppingcar.view.OrderButton.STEP_BTN_SHRINK;
 
 /**
  * Created by HelloWorld on 2017/2/26.
+ * 1. 先测量宽高， 宽就是根据文字的宽度测量而来
+ * 2. 画字和画加号，减号。分成两种情况
+ * 3. 触摸事件处理
  */
 
 public class ShoppingView extends View{
@@ -43,11 +52,14 @@ public class ShoppingView extends View{
     // 绘制背景，按钮，文字的画笔
     private Paint mPaintBg, mPaintNum, mPaintText;
 
-    private int mWidth;     // 宽
-    private int mHeight;    // 高
-    private float mRadius;    // 半径
-    private int mChangeValue;
-    private int mChange;    // 显示数量的矩形宽度
+    private int mWidth;         // 宽
+    private int mHeight;        // 高
+    private float mRadius;      // 半径
+    private int mChangeValue;   // 做动画的宽度
+    private int mChange;        // 显示数量的矩形宽度
+    private boolean mIsRun;     // 是否正在做动画
+    private List<Animator> mAnimatorList;
+    private float mDegrees;     // 旋转角度
 
 
     public ShoppingView(Context context) {
@@ -110,10 +122,13 @@ public class ShoppingView extends View{
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         setMeasuredDimension(mWidth, mHeight);
+        System.out.println("onMeasure");
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
+        System.out.println("onDraw");
+
         super.onDraw(canvas);
         switch (mType) {
             case STEP_NORMAL:
@@ -142,6 +157,8 @@ public class ShoppingView extends View{
                 int cy = (int) (mHeight - mRadius);
                 // 画布移动
                 canvas.translate(-mChange, 0);
+                if (mType != STEP_TEXT_CHANGE)
+                    canvas.rotate(mDegrees, cx, cy);
                 mPaintBg.setStrokeWidth(5);
                 mPaintBg.setStyle(Paint.Style.STROKE);
                 // 减号的圆
@@ -168,6 +185,125 @@ public class ShoppingView extends View{
             }
                 break;
         }
+    }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                // 如果现在是纯文字显示，也没有做动画
+                if(mType == STEP_NORMAL && !mIsRun) {
+                    // 数量变成1
+                    mNum = 1;
+                    // 状态变成文字正在收缩
+                    mType = STEP_TEXT_SHRINK;
+                    // 正在进行动画
+                    mIsRun = true;
+                    step1();
+                }
+                break;
+        }
+        return super.onTouchEvent(event);
+    }
+
+    // 文字收缩
+    private void step1() {
+        if(mType == STEP_TEXT_SHRINK) {
+            ValueAnimator valueAnimator = ValueAnimator.ofInt(mChangeValue, 0);
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    if(mIsRun) {
+                        mChange = (int) animation.getAnimatedValue();
+                        System.out.println("mChangeValue == " + mChangeValue);
+                        // 重绘View
+                        invalidate();
+                    } else {
+                        animation.cancel();
+                    }
+                }
+            });
+            valueAnimator.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) {
+                    mIsRun = true;
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    // 动画完成
+                    mType = STEP_BIN_EXPAND;
+                    // TODO 回调
+
+                    // 第二个动画
+                    step2();
+                }
+
+
+                @Override
+                public void onAnimationCancel(Animator animation) {
+                    // 动画被取消
+                    mIsRun = false;
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+            });
+            valueAnimator.setDuration(500);
+            valueAnimator.start();
+            mAnimators().add(valueAnimator);
+        }
+    }
+
+    // 按钮展开
+    private void step2() {
+        if(mType == STEP_BIN_EXPAND && mIsRun) {
+            ValueAnimator valueAnimator = ValueAnimator.ofInt(0, mChangeValue);
+            valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    if(mIsRun) {
+                        mChange = (int) animation.getAnimatedValue();
+                        mDegrees = mChange / (float) mChangeValue * 360f;
+                        invalidate();
+                    } else {
+                        animation.cancel();
+                    }
+                }
+            });
+            valueAnimator.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mIsRun = false;
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animation) {
+                    mIsRun = false;
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+            });
+            valueAnimator.setDuration(500);
+            valueAnimator.start();
+            mAnimators().add(valueAnimator);
+        }
+    }
+
+    private List<Animator> mAnimators() {
+        if(mAnimatorList == null) {
+            mAnimatorList = new ArrayList<>();
+        }
+        return mAnimatorList;
     }
 }
